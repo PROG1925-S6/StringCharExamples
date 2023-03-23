@@ -20,7 +20,8 @@ namespace StringCharExamples
         {
             //StringsAndChars();
             //SearchStrings();
-            SubstringExamples();
+            //SubstringExamples();
+            DelimTokens();
 
             Console.ReadKey();
         }
@@ -32,7 +33,7 @@ namespace StringCharExamples
 
             //1. Display a string one letter at a time
 
-            for (int i = 0; i < testString.Length; i++) 
+            for (int i = 0; i < testString.Length; i++)
             {
                 Console.WriteLine($"{i}: {testString[i]}");
             }
@@ -111,7 +112,7 @@ namespace StringCharExamples
             Console.Write("Enter your course code: ");
             testString = Console.ReadLine();
 
-            if(testString.Contains("PROG"))
+            if (testString.Contains("PROG"))
             {
                 Console.WriteLine("Programming course");
             }
@@ -158,6 +159,53 @@ namespace StringCharExamples
 
             Console.WriteLine(testString);
             Console.WriteLine(substringValue);
+        }
+
+        static void DelimTokens()
+        {
+            string testString = "Tony,Ari,Angela";
+            string[] tokens;
+
+            tokens = testString.Split(',');
+
+            foreach (string s in tokens)
+            {
+                Console.WriteLine(s);
+            }
+
+            Console.WriteLine();
+
+            testString = "Toronto Maple Leafs";
+            tokens = testString.Split(' ');
+
+            foreach (string s in tokens)
+            {
+                Console.WriteLine(s);
+            }
+
+            Console.WriteLine();
+
+            testString = "tony,steph ari:john";
+            char[] delim = { ',', ' ', ':' };
+            tokens = testString.Split(delim);
+
+            foreach (string s in tokens)
+            {
+                Console.WriteLine(s);
+            }
+
+            Console.WriteLine();    
+
+            for (int i = 0; i < tokens.Length; i++) 
+            {
+                //tokens[i] = char.ToUpper(tokens[i][0]) + tokens[i].Substring(1, tokens[i].Length - 1);
+                tokens[i] = char.ToUpper(tokens[i][0]) + tokens[i].Substring(1);
+            }
+
+            foreach (string s in tokens)
+            {
+                Console.WriteLine(s);
+            }
         }
     }
 }
