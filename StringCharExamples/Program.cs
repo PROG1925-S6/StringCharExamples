@@ -18,7 +18,9 @@ namespace StringCharExamples
     {
         static void Main(string[] args)
         {
-            StringsAndChars();
+            //StringsAndChars();
+            //SearchStrings();
+            SubstringExamples();
 
             Console.ReadKey();
         }
@@ -101,5 +103,61 @@ namespace StringCharExamples
             }
         }
 
+        static void SearchStrings()
+        {
+            string testString;
+            int index;
+
+            Console.Write("Enter your course code: ");
+            testString = Console.ReadLine();
+
+            if(testString.Contains("PROG"))
+            {
+                Console.WriteLine("Programming course");
+            }
+            else
+            {
+                Console.WriteLine("Not a programming course");
+            }
+
+            index = testString.IndexOf("P");
+
+            if (index >= 0)
+            {
+                Console.WriteLine("P is at index: " + index);
+            }
+            else
+            {
+                Console.WriteLine("P not found");
+            }
+
+            testString = "xx oo xx";
+            index = testString.IndexOf("xx");
+            Console.WriteLine("xx is at index: " + index);
+
+            index = testString.IndexOf("xx", 1);
+            Console.WriteLine("xx is at index: " + index);
+
+        }
+
+        static void SubstringExamples()
+        {
+            string testString = "New York";
+            string substringValue;
+
+            //Inserting
+            testString = testString.Insert(3, "ish ");
+            Console.WriteLine(testString);
+
+            //Remove
+            testString = testString.Remove(3, 4);
+            Console.WriteLine(testString);
+
+            testString = "Conestoga College Waterloo";
+            substringValue = testString.Substring(10, 7);
+
+            Console.WriteLine(testString);
+            Console.WriteLine(substringValue);
+        }
     }
 }
